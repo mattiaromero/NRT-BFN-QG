@@ -82,7 +82,7 @@ def place_files(ftp, path):
             print("CWD", "..")
             ftp.cwd("..")
 
-import secretcodes
+#import secretcodes
 from ftplib import FTP
 def ftp_to_ifremer(name_experiment, today, currdir):
 
@@ -152,6 +152,9 @@ def download_nadirs_cmems(name_experiment, currdir, today, numdays, datasets, da
         - The 'secretcodes' module must contain the 'cmems_username' and 'cmems_password' variables
           with the appropriate FTP credentials.
     """
+
+    import sys
+    print(sys.path)
 
     # Set user name and password
     username = secretcodes.cmems_username

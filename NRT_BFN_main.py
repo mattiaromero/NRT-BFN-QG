@@ -17,8 +17,8 @@ def main():
 
     ########################### Parameters to adjust ##########################################################################################
 
-    destination = None # Available options : 'ifremer',
-    make_lagrangian_diags = False # True or False
+    destination = None # Available options : 'ifremer' - need login and password to be set in the ftp_to_ifremer function
+    make_lagrangian_diags = False # True or False # Requires LAMTA repo, contact https://github.com/rousseletL 
     draw_L3 = True # True or False
     make_alongtrack_rmse = True # True or False
     make_duacs_comp = 'interactive' # Available options: 'today', 'YYYY-MM-DD' (choose a date), 'interactive', 'none'
