@@ -1,4 +1,4 @@
-name: nrt-bfn-env
+name: nrt-bfn-qg
 channels:
   - defaults
   - conda-forge

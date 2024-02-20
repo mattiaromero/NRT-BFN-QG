@@ -82,8 +82,10 @@ def place_files(ftp, path):
             print("CWD", "..")
             ftp.cwd("..")
 
-#import secretcodes
+from tools.secretcodes import secretcodes
+
 from ftplib import FTP
+
 def ftp_to_ifremer(name_experiment, today, currdir):
 
     """
@@ -152,9 +154,6 @@ def download_nadirs_cmems(name_experiment, currdir, today, numdays, datasets, da
         - The 'secretcodes' module must contain the 'cmems_username' and 'cmems_password' variables
           with the appropriate FTP credentials.
     """
-
-    import sys
-    print(sys.path)
 
     # Set user name and password
     username = secretcodes.cmems_username
@@ -284,6 +283,8 @@ def download_swot_nadir(name_experiment, currdir, today):
     # Connect to the ftp server
     ftp = FTP('ftp-access.aviso.altimetry.fr',username,password)
     ftp.cwd('/data/Data/ALTI/DUACS_SWOT_Nadir/L3_Along_track')
+    # https://www.aviso.altimetry.fr/en/data/products/sea-surface-height-products/global/along-track-sea-level-heights.html
+    # https://www.aviso.altimetry.fr/en/data/products/sea-surface-height-products/global/swot-l3-ocean-products.html 
     filenames = ftp.nlst()
 
     # Download SWOT nadir product
