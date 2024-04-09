@@ -82,7 +82,26 @@ def place_files(ftp, path):
             print("CWD", "..")
             ftp.cwd("..")
 
-from tools.secretcodes import secretcodes
+from tools.secretcodes import get_secretcodes
+
+# FIXME! 
+secretcodes = get_secretcodes()
+
+cmems_username = 'mromero4'
+cmems_password = 'Glasgow10!'
+swot_username = 'mattiaromero10@gmail.com'
+swot_password = 'phDCLB'
+
+class SecretCodes:
+    def __init__(self, ifremer_username=None, ifremer_password=None, cmems_username=None, cmems_password=None, swot_username=None, swot_password=None):
+        self.ifremer_username = ifremer_username
+        self.ifremer_password = ifremer_password
+        self.cmems_username = cmems_username
+        self.cmems_password = cmems_password
+        self.swot_username = swot_username
+        self.swot_password = swot_password
+
+secretcodes = SecretCodes(cmems_username = cmems_username, cmems_password = cmems_password, swot_username = swot_username, swot_password = swot_password)
 
 from ftplib import FTP
 
@@ -158,7 +177,7 @@ def download_nadirs_cmems(name_experiment, currdir, today, numdays, datasets, da
     # Set user name and password
     username = secretcodes.cmems_username
     password = secretcodes.cmems_password
-
+    
     # Connect to the ftp server
     ftp = FTP('nrt.cmems-du.eu',username,password)
 
@@ -278,11 +297,12 @@ def download_swot_nadir(name_experiment, currdir, today):
 
     # Set user name and password
     username = secretcodes.swot_username
-    password = secretcodes.swot_password
+    password = secretcodes.swot_password 
 
     # Connect to the ftp server
     ftp = FTP('ftp-access.aviso.altimetry.fr',username,password)
-    ftp.cwd('/data/Data/ALTI/DUACS_SWOT_Nadir/L3_Along_track')
+    # ftp.cwd('/data/Data/ALTI/DUACS_SWOT_Nadir/L3_Along_track')
+    ftp.cwd('/swot_beta_products/l3_karin_nadir')
     # https://www.aviso.altimetry.fr/en/data/products/sea-surface-height-products/global/along-track-sea-level-heights.html
     # https://www.aviso.altimetry.fr/en/data/products/sea-surface-height-products/global/swot-l3-ocean-products.html 
     filenames = ftp.nlst()

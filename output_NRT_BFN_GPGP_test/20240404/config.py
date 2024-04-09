@@ -15,7 +15,7 @@ modified by Adrien Stella on 2023-07-19 from the MASSH example config_2020a_BFNQ
 from datetime import datetime,timedelta,date,time
 
 final_date = datetime.combine(date.today(), time())
-final_date = datetime.combine(date.fromisoformat('2023-04-13'), time())
+#final_date = datetime.combine(date.fromisoformat('2023-06-13'), time())
 numdays = 8
 
 today = final_date.strftime('%Y%m%d')
